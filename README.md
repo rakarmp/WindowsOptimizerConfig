@@ -1,59 +1,68 @@
-# Windows Optimizer CLI
+# Windows Optimizer Config
 
-Script ini dirancang untuk mengoptimalkan performa Windows 10 dan versi di atasnya dengan memfokuskan pada:
-- Pengurangan service latar belakang
-- Peningkatan FPS dalam game
-- Pengoptimalan registry
-- Pengurangan beban visual
-- Pengoptimalan jaringan
+Script performance booster untuk Windows 10 dan yang lebih baru yang membantu mengoptimalkan performa sistem, meningkatkan FPS dalam game, dan mengurangi service latar belakang.
 
-## Cara Penggunaan
+## Fitur
 
-1. Ekstrak semua file dalam satu folder
-2. Pastikan struktur folder sebagai berikut:
-   ```
-   WOC/
-   ├── main.bat
-   ├── README.md
-   └── scripts/
-       ├── service_optimizer.bat
-       ├── system_cleanup.bat
-       ├── registry_gaming.bat
-       ├── network_optimizer.bat
-       ├── visual_effects.bat
-       └── restore_defaults.bat
-   ```
-3. Klik kanan pada `main.bat` dan pilih "Run as administrator"
-4. Pilih opsi yang diinginkan dari menu utama
+- ✅ Optimasi service Windows untuk mengurangi beban latar belakang
+- ✅ Pembersihan sistem dari file temporary dan cache
+- ✅ Optimasi registry khusus untuk gaming
+- ✅ Pengaturan jaringan untuk mengurangi latency
+- ✅ Optimasi visual effects untuk meningkatkan performa
+- ✅ Shortcut command `woc` untuk akses cepat
 
-## Deskripsi File
+## Instalasi
 
-- **main.bat**: File utama yang menjalankan menu dan memanggil script lainnya
-- **service_optimizer.bat**: Mengoptimalkan dan menonaktifkan service yang tidak perlu
-- **system_cleanup.bat**: Membersihkan file temporary dan cache sistem
-- **registry_gaming.bat**: Mengoptimalkan registry untuk gaming dan performa tinggi
-- **network_optimizer.bat**: Mengoptimalkan pengaturan jaringan
-- **visual_effects.bat**: Menonaktifkan efek visual untuk performa lebih baik
-- **restore_defaults.bat**: Mengembalikan pengaturan ke kondisi default
+### Metode 1: Menggunakan Winget (Direkomendasikan)
 
-## Peringatan
+```
+winget install WindowsOptimizerConfig
+```
 
-- Gunakan script ini dengan risiko Anda sendiri
-- Selalu buat System Restore Point sebelum menjalankan script
-- Beberapa program mungkin memerlukan service yang dinonaktifkan, gunakan opsi restore jika ada masalah
-- Script ini dirancang untuk Windows 10 dan 11, tidak dijamin berfungsi pada versi Windows lainnya
+### Metode 2: Instalasi Manual
 
-## Performa yang Diharapkan
+1. Unduh installer dari [halaman Releases](../../releases)
+2. Jalankan installer sebagai Administrator
+3. Ikuti instruksi instalasi
 
-- Pengurangan penggunaan RAM saat idle
-- Peningkatan FPS dalam game
-- Penurunan latensi input
-- Pengurangan beban CPU pada task latar belakang
-- Peningkatan responsivitas sistem secara keseluruhan
+## Penggunaan
 
-## Pemecahan Masalah
+Setelah instalasi, cukup ketik `woc` di Command Prompt untuk menjalankan program.
 
-Jika mengalami masalah setelah menjalankan script:
-1. Jalankan opsi "Kembalikan Pengaturan Default" dari menu utama
-2. Restart komputer
-3. Jika masalah berlanjut, gunakan System Restore untuk mengembalikan sistem ke titik sebelum script dijalankan
+Program akan menampilkan menu dengan berbagai opsi optimasi:
+
+```
+===================================================
+         WINDOWS PERFORMANCE CONFIG
+===================================================
+
+ [1] Optimasi Service Windows
+ [2] Pembersihan Sistem
+ [3] Optimasi Registry untuk Gaming
+ [4] Optimasi Jaringan
+ [5] Optimasi Visual Effects
+ [6] Kembalikan Pengaturan Default (Restore)
+ [7] Keluar
+
+===================================================
+```
+
+## Persyaratan Sistem
+
+- Windows 10 atau Windows 11
+- Hak administrator untuk instalasi dan menjalankan script
+- Minimal 50MB ruang kosong
+
+## Perhatian
+
+- Selalu buat System Restore Point sebelum menggunakan tool optimasi
+- Gunakan opsi "Kembalikan Pengaturan Default" jika mengalami masalah
+- Beberapa aplikasi mungkin memerlukan service yang dinonaktifkan
+
+## Build dan Pengembangan
+
+Lihat [CONTRIBUTING.md](CONTRIBUTING.md) untuk informasi tentang cara berkontribusi ke project ini.
+
+## Lisensi
+
+Project ini dilisensikan di bawah [MIT License](LICENSE).
