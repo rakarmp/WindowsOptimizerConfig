@@ -1,4 +1,4 @@
-!include "MUI2.nsh"
+﻿!include "MUI2.nsh"
 
 Name "Windows Optimizer Config"
 OutFile "WindowsOptimizerConfig-Setup.exe"
