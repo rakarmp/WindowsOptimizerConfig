@@ -13,17 +13,8 @@ Script performance booster untuk Windows 10 dan yang lebih baru yang membantu me
 
 ## Instalasi
 
-### Metode 1: Menggunakan Winget (Direkomendasikan)
-
-```
-winget install WindowsOptimizerConfig
-```
-
-### Metode 2: Instalasi Manual
-
-1. Unduh installer dari [halaman Releases](../../releases)
-2. Jalankan installer sebagai Administrator
-3. Ikuti instruksi instalasi
+1. Clone Repo Ini https://github.com/rakarmp/WindowsOptimizerConfig.git
+2. Jalankan installer.bat sebagai Administrator
 
 ## Penggunaan
 
@@ -58,10 +49,6 @@ Program akan menampilkan menu dengan berbagai opsi optimasi:
 - Selalu buat System Restore Point sebelum menggunakan tool optimasi
 - Gunakan opsi "Kembalikan Pengaturan Default" jika mengalami masalah
 - Beberapa aplikasi mungkin memerlukan service yang dinonaktifkan
-
-## Build dan Pengembangan
-
-Lihat [CONTRIBUTING.md](CONTRIBUTING.md) untuk informasi tentang cara berkontribusi ke project ini.
 
 ## Lisensi
 
