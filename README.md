@@ -13,8 +13,14 @@ Script performance booster untuk Windows 10 dan yang lebih baru yang membantu me
 
 ## Instalasi
 
-1. Clone Repo Ini https://github.com/rakarmp/WindowsOptimizerConfig.git
+1. Clone Repo [Ini](https://github.com/rakarmp/WindowsOptimizerConfig.git)
 2. Jalankan installer.bat sebagai Administrator
+
+## Alternatif
+
+1. Download [NSIS](https://prdownloads.sourceforge.net/nsis/nsis-3.11-setup.exe?download)
+2. Clone Repo [Ini](https://github.com/rakarmp/WindowsOptimizerConfig.git)
+3. Run as administrator installer.nsi
 
 ## Penggunaan
 
