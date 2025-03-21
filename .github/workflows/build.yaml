@@ -1,0 +1,85 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install NSIS
+      run: |
+        Invoke-WebRequest -Uri "https://sourceforge.net/projects/nsis/files/NSIS%203/3.08/nsis-3.08-setup.exe/download" -OutFile nsis-setup.exe
+        Start-Process -FilePath .\nsis-setup.exe -ArgumentList "/S" -Wait
+    
+    - name: Build Installer
+      run: |
+        & 'C:\Program Files (x86)\NSIS\makensis.exe' installer.nsi
+        
+    - name: Get Version
+      id: get_version
+      run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+      shell: bash
+      
+    - name: Calculate SHA256
+      id: sha256
+      run: |
+        $hash = (Get-FileHash -Path .\WindowsOptimizerConfig-Setup.exe -Algorithm SHA256).Hash
+        echo "hash=$hash" >> $env:GITHUB_OUTPUT
+      
+    - name: Create Winget Manifest
+      run: |
+        $version = "${{ steps.get_version.outputs.version }}"
+        $hash = "${{ steps.sha256.outputs.hash }}"
+        $repoName = "${{ github.repository }}"
+        
+        $manifestDir = "manifests\w\WindowsOptimizerConfig\$version"
+        New-Item -ItemType Directory -Path $manifestDir -Force
+        
+        $manifestContent = @"
+# yaml-language-server: `$schema=https://aka.ms/winget-manifest.singleton.1.4.0.schema.json
+PackageIdentifier: WindowsOptimizerConfig
+PackageVersion: $version
+PackageName: Windows Optimizer Config
+Publisher: ${{ github.repository_owner }}
+License: MIT
+ShortDescription: Windows performance optimization tool
+Tags:
+  - performance
+  - optimization
+  - gaming
+  - fps
+Installers:
+  - Architecture: x64
+    InstallerType: exe
+    InstallerUrl: https://github.com/$repoName/releases/download/v$version/WindowsOptimizerConfig-Setup.exe
+    InstallerSha256: $hash
+    InstallerSwitches:
+      Silent: /S
+      SilentWithProgress: /S
+ManifestType: singleton
+ManifestVersion: 1.4.0
+"@
+        
+        Set-Content -Path "$manifestDir\WindowsOptimizerConfig.yaml" -Value $manifestContent
+        
+    - name: Upload Winget Manifest
+      uses: actions/upload-artifact@v3
+      with:
+        name: winget-manifest
+        path: manifests
+        
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: Release ${{ steps.get_version.outputs.version }}
+        draft: false
+        prerelease: false
+        files: |
+          WindowsOptimizerConfig-Setup.exe
